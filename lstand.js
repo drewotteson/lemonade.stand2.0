@@ -1,11 +1,9 @@
+//whole sale with variable pricing
+//weather system/weather effects
+//player decides pricing and inventory
+//price affects sales
 "use strict"
 
-var day = ["Monday","Tuesday","Wednesday","Thursday","Friday"];
-var weather = ["Sunny","Cloudy","Raining"];
-var highTemp = 100;
-var lowTemp = 60;
-var servingCost = 0.7;
-var tempToday = [];
 
 function readyToPlay() {
     while (true) {
@@ -18,16 +16,49 @@ function readyToPlay() {
     }
 }
 }
-
-function makeWeather(){
-    var todaysForecast;
+function makeWeather() {
+    var day = ["Monday","Tuesday","Wednesday","Thursday","Friday"];
+    var weather = ["Sunny","Cloudy","Raining"];
+    var highTemp = 100;
+    var lowTemp = 60;
+    var tempToday = [];
     var todaysTemp;
     for (var temp = 0; temp < day.length; temp++) {
-        todaysWeather = weather[Math.floor(Math.random() * weather.length)];
+        var todaysWeather = weather[Math.floor(Math.random() * weather.length)];
         todaysTemp = Math.floor(Math.random() * (highTemp - lowTemp) + lowTemp);
         tempToday[temp] = todaysTemp;
-        console.log("On " + day[temp] +" the weather will be " + todaysWeather + " and " + todaysTemp)
+        console.log(" the weather will be " + todaysWeather + " and " + todaysTemp)
         } 
 }
-makeWeather();
-readyToPlay();
+
+function buyIce() {
+    var icePrices = [.25, .50, .75]
+    var buyice = 0
+    var icePurchased = prompt("How much ice would you like to buy?")
+
+}
+
+/*function generateCustomer() {
+
+}
+function customerPurchase() {
+
+}
+function updateInventory() {
+
+}
+function mainPlayGame() {
+    var sugar = 0
+
+}*/
+
+
+function main() {
+    var initiatePlay;
+    var weather;
+    initiatePlay = readyToPlay()
+    weather = makeWeather()
+
+}
+
+main();
