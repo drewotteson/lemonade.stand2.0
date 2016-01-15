@@ -23,19 +23,26 @@ function makeWeather() {
     var lowTemp = 60;
     var tempToday = [];
     var todaysTemp;
-    for (var temp = 0; temp < day.length; temp++) {
+    for (var temp = 0; temp < 1; temp++) {
         var todaysWeather = weather[Math.floor(Math.random() * weather.length)];
         todaysTemp = Math.floor(Math.random() * (highTemp - lowTemp) + lowTemp);
         tempToday[temp] = todaysTemp;
-        console.log(" the weather will be " + todaysWeather + " and " + todaysTemp)
+        console.log("The weather will be " + todaysWeather + " and " + todaysTemp)
         } 
 }
 
-function buyIce() {
-    var icePrices = [.25, .50, .75]
-    var buyice = 0
-    var icePurchased = prompt("How much ice would you like to buy?")
-
+function cupStuff(cupPrice) {
+    var cupInput;
+    var cupPurchase;
+    var cupCost = 1;
+    cupInput = prompt("Cups cost 1$. Would you like to purchase cups? Type yes or no.")
+    if (cupInput == "yes") {
+        cupPurchase = cupInput * cupCost
+        cups += cupInput;
+        return(cups);
+    }
+    if ((cupInput == "no"))
+        return cups
 }
 
 /*function generateCustomer() {
@@ -54,11 +61,16 @@ function mainPlayGame() {
 
 
 function main() {
+    var money = 20;
+    var cupPrice = 0;
+    var lemonPrice = 0;
+    var sugarPrice = 0;
+    var icePrice = 0;
+
     var initiatePlay;
     var weather;
     initiatePlay = readyToPlay()
     weather = makeWeather()
-
 }
 
 main();
