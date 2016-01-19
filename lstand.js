@@ -9,7 +9,7 @@ function readyToPlay() {
     while (true) {
     var userInput = prompt("Are you ready to play?")
     if(userInput != "yes") {
-        console.log("Try again!")
+        console.log("You don't have a choice, try again!")
     } if(userInput === "yes") {
         console.log("Let's play!")
         break;
@@ -30,8 +30,7 @@ function makeWeather() {
         console.log("The weather will be " + todaysWeather + " and " + todaysTemp)
         } 
 }
-
-function cupStuff(cupPrice) {
+function cupStuff(cups) {
     var cupInput;
     var cupPurchase;
     var cupCost = 1;
@@ -41,36 +40,139 @@ function cupStuff(cupPrice) {
         cups += cupInput;
         return(cups);
     }
-    if ((cupInput == "no"))
-        return cups
+    if (cupInput == "no")
+        return(cups);
 }
-
-/*function generateCustomer() {
-
+function cupInventory(money, cupCost, cupInput) {
+    var cupPurchase;
+    cupPurchase = cupInput * cupCost;
+    money -= cupPurchase;
+    return(money);
 }
-function customerPurchase() {
-
+function iceStuff(ice) {
+    var iceInput;
+    var icePurchase;
+    var iceCost = 1;
+    iceInput = prompt("Ice costs 1$. Would you like to purchase ice?. Type yes or no.")
+    if (iceInput == "yes") {
+        ice += iceInput;
+        return(ice);
+    }
+    if (iceInput == "no")
+        return(ice);
 }
-function updateInventory() {
-
+function iceInventory(money, iceCost, iceInput) {
+    var icePurchase;
+    icePurchase = iceInput * iceCost;
+    money -= icePurchase;
+    return(money);
 }
-function mainPlayGame() {
-    var sugar = 0
-
-}*/
+function lemonStuff(lemon) {
+    var lemonInput;
+    var lemonPurchase;
+    var lemonCost = 2;
+    lemonInput = prompt("Lemons cost 2$. Would you like to purchase lemons? Type yes or no.")
+    if (lemonInput == "yes") {
+        lemon += lemonInput;
+        return(lemon);
+    }
+    if (lemonInput == "no")
+        return(lemon);
+}
+function lemonInventory(money, lemonCost, lemonInput) {
+    var lemonPurchase;
+    lemonPurchase = lemonInput * lemonCost;
+    money -= lemonPurchase;
+    return(money);
+}
+function sugarStuff(sugar) {
+    var sugarInput;
+    var sugarPurchase;
+    var sugarCost = 2;
+    sugarInput = prompt("Sugar costs 2$. Would you like to purchase sugar? Type yes or no.")
+    if (sugarInput == "yes") {
+        sugar += sugarInput;
+        return(sugar);
+    }
+    if (sugarInput == "no")
+        return(sugar);
+}
+function sugarInventory(money, sugarCost, sugarInput) {
+    var sugarPurchase;
+    sugarPurchase = sugarInput * sugarCost;
+    money -= sugarPurchase;
+    return(money);
+}
+function adjustCupPrice() {
+    var salePrice = console.log("Set price per cup: 1$-5$")
+    return(salePrice);
+    }
+function changeLemons(lemon) {
+    while(true){
+    var lemonsInRecipe = prompt("How many lemons do you want for your pitcher?")
+    return(lemonsInRecipe);
+    break;
+    }
+    }
+function updateLemonInventory(lemon, lemonsInRecipe) {
+    var lemonsInPitcher = lemon - lemonsInRecipe;
+    return(lemonsInPitcher);
+}
+function changeSugar(sugar) {
+    while(true) {
+    var sugarInRecipe = prompt("How much sugar do you want for your pitcher?")
+    return(sugarInRecipe);
+    break;
+    }
+    }
+function updateSugarInventory(sugar, sugarInRecipe) {
+    var sugarInPitcher = sugar - sugarInRecipe;
+    return(sugarInPitcher);
+}
+function changeIce() {
+    while(true) {
+    var iceInRecipe = prompt("How much ice do you wan for your pitcher?")
+    return(iceInRecipe);
+    break;
+    }
+    }
+function updateIceInventory(ice, iceInRecipe) {
+    var iceInPitcher = ice - iceInRecipe;
+    return(iceInventory)
+}
+function generateCustomers() {
+    var customers = Array("15Buyers,12Non-Buyers, profit8");
+    var customer = customers[Math.floor(Math.random()*customers.length)];
+    console.log(customer);
+}
 
 
 function main() {
-    var money = 20;
-    var cupPrice = 0;
-    var lemonPrice = 0;
-    var sugarPrice = 0;
-    var icePrice = 0;
+    var money = 50;
+    var cup = 0;
+    var lemon = 0;
+    var sugar = 0;
+    var ice = 0;
 
-    var initiatePlay;
-    var weather;
-    initiatePlay = readyToPlay()
-    weather = makeWeather()
+    var start = readyToPlay();
+    var weath = makeWeather();
+    var cupChange = cupStuff();
+    var cupInvent = cupInventory();
+    var iceChange = iceStuff();
+    var iceInvent = iceInventory();
+    var lemonChange = lemonStuff();
+    var lemonInvent = lemonInventory();
+    var sugarChange = sugarStuff();
+    var sugarInvent = sugarInventory();
+    var cupPrice = adjustCupPrice();
+    var adjustLemon = changeLemons();
+    var updateLemon = updateLemonInventory();
+    var adjustSugar = changeSugar();
+    var updateSugar = updateSugarInventory();
+    var adjustIce = changeIce();
+    var updateIce = updateIceInventory();
+    var customerBase = generateCustomers();
+
 }
 
 main();
